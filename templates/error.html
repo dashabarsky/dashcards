@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block body %}
+    <h2>
+    Error!
+    </h2>
+    <div class="mb-4">
+        Sorry, something's gone wrong!<br>
+        {{error}}
+    </div>
+    <div class="row justify-content-center">
+    {% if return_path %}
+        <div class="col-md-6 mb-2 text-center">
+            <a href="{{return_path}}" type="button" class="w-100 btn btn-lg btn-info btn-block">Go back</a>
+        </div>
+    {% endif %}
+        <div class="col-md-6 mb-2 text-center">
+            <a href="/" type="button" class="w-100 btn btn-lg btn-dark btn-block light-mode">Return to Home</a>
+        </div>
+
+    </div>
+
+{% endblock %}

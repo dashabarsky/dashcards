@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block body %}
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card account-form bg-light light-mode border-default">
+          <div class="card-body px-5 py-4 text-center">
+
+            <h3 class="mb-4">Register</h3>
+            <form action="/register" method="post">
+                <div class="mb-2 small">
+                <b>Please note:</b> do <b>not</b> use a password which you would use on another site!<br>
+                For security please use a memorable word or phrase which you do not use anywhere else.
+                </div>
+                <div class="form-outline mb-4">
+                <input autocomplete="off" autofocus id="username" name="username" placeholder="Username" type="text" class="form-control form-control-lg bg-light light-mode text-dark" />
+                </div>
+
+                <div class="form-outline mb-4">
+                <input id="memorable-phrase" name="memorable-phrase" placeholder="Memorable phrase" type="password" class="form-control form-control-lg bg-light light-mode text-dark" />
+                </div>
+
+                <div class="form-outline mb-4">
+                <input id="confirmation" name="confirmation" placeholder="Memorable phrase again" type="password" class="form-control form-control-lg bg-light light-mode text-dark" />
+                </div>
+
+                <button class="btn btn-info btn-lg btn-block" type="submit">Register</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Session in Progress
+{% endblock %}
+
+{% block body %}
+    {% if request.method == "POST" %}
+        {% if last_word_results.outcome == "correct" %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Well done! The word was {{ last_word_results.word }} and the answer
+                was {{ last_word_results.expected_answer }}. Great job!
+        {% elif last_word_results.outcome == "incorrect" %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Not quite! The word was {{ last_word_results.word }} and the answer
+                was {{ last_word_results.expected_answer }}. Your answer
+                was {{ last_word_results.user_answer }}. Not to worry though - try again next time!
+        {% else %}
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                Something went wrong with the last submission on the backend - sorry about that!
+        {% endif %}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+
+{% endblock %}

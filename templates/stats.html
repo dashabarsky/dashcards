@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Stats
+{% endblock %}
+
+{% block body %}
+
+    <h2>My Stats</h2>
+    <div id="top-level">
+        <p>
+        Current word difficulty rank: {{ user_rank }}
+        </p>
+    </div>
+
+    {% if user_words %}
+    <br><br>
+    <div id="rank-level" class="table-responsive">
+        <h2>My Rank Mastery</h2>
+
+        <table class="table table-sm table-hover align-middle text-center table-white light-mode" id="stats-by-rank">
+            <thead>
+                <tr>
+                    <td></td>
+                    {% for level in mastery_levels %}
+                        <th scope="col">{{ level["level"] }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for rank in user_levels_by_rank %}
+                    {% if user_levels_by_rank[rank]['total'] > 0 %}
+                    <tr>
+                        <th scope="row">Rank {{ rank }}</th>
+                        {% for level in user_levels_by_rank[rank]['levels'] %}
+                            <td>{{ user_levels_by_rank[rank]['levels'][level] }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br><br>
+    </div>
+
+    <div id="word-level" class="table-responsive">
+        <h2>My Words</h2>
+
+        <table class="table table-sm table-hover align-middle table-white light-mode" id="stats-by-word">
+            <thead>
+                <tr>
+                    <th>Word</th>
+                    <th>Difficulty Rank</th>
+                    <th>Mastery Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for word in user_words %}
+                    <tr>
+                        <td>{{ word.word }}</td>
+                        <td>Rank {{ word.rank }}</td>
+                        <td>{{ word.level }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+    {% else %}
+        <div>
+            You don't currently have any words to display, but please come back here
+            once you've answered some words to see how well you've mastered them!
+        </div>
+    {% endif %}
+
+
+
+{% endblock %}

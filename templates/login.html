@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Login
+{% endblock %}
+
+{% block body %}
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card account-form bg-white light-mode border-default">
+          <div class="card-body px-5 py-4 text-center">
+
+            <h3 class="mb-4">Sign in</h3>
+            <form action="/login" method="post">
+                <div class="form-outline mb-4">
+                <input autocomplete="off" autofocus id="username" name="username" placeholder="Username" type="text" class="form-control form-control-lg bg-light light-mode text-dark" />
+                </div>
+
+                <div class="form-outline mb-4">
+                <input id="memorable-phrase" name="memorable-phrase" placeholder="Memorable phrase" type="password" class="form-control form-control-lg bg-light light-mode text-dark" />
+                </div>
+
+                <button class="btn btn-info btn-lg btn-block" type="submit">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

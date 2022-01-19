@@ -1,0 +1,26 @@
+{% extends "cardsresult.html" %}
+
+{% block content %}
+
+    <br>
+    <div id="next-word"><center>
+            <div class="row row-centered d-flex justify-content-center">
+            <div class="col-sm-8 col-centered">
+
+        <div><h3>What is the meaning of:</h3></div>
+        <br>
+        <div><h1>{{ word_to_present.word }}</h1></div>
+        <br>
+            <form action='/cards' class="form-inline" method='post'>
+                    <input type='hidden' value='{{ word_to_present.word }}' id='word' name='word' >
+                    <input autofocus autocomplete='off' class="form-control bg-light light-mode text-dark border-default mb-3" id='answer' name='answer' type='text'">
+                    <button class="btn btn-info" id="submit-word" type='submit'>Submit</button>
+            </form>
+
+    </div>
+        </div></center>
+    </div>
+    <br>
+    <div><a href="/" class="link-secondary light-mode">End session</a></div>
+
+{% endblock %}

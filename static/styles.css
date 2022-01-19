@@ -1,0 +1,45 @@
+.words-left {
+  padding-right: 0px;
+}
+
+#answer {
+  /*position: relative;
+  height: 50px;
+  font-size: 16px;*/
+  text-align: center;
+  /*border-radius: 0;*/
+}
+
+.account-form {
+  border-radius: 1rem !important;
+}
+
+#stats-by-word {
+    width: 50% !important;
+}
+
+.main-content {
+  color: var(--bs-black);
+}
+
+.border-black {
+  border-color: black !important;
+}
+
+i.light-mode {
+  color: black;
+}
+
+i.dark-mode {
+  color: white;
+}
+
+.form-control.light-mode:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(0, 0, 0, 0.5) !important;
+  border-color: #878787 !important;
+}
+
+.form-control.dark-mode:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(255, 255, 255, 1) !important;
+  border-color: white !important;
+}
