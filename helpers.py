@@ -147,7 +147,7 @@ def update_user_stats(word_dict):
   # if for some reason user doesn't have a set rank, initialise to 0
 
   # if for some reason user doesn't exist and no words found, return
-  user_rows = db.execute("SELECT * FROM user_stats WHERE id = ?", session["user_id"])
+  user_rows = db.execute("SELECT * FROM user_stats WHERE user_id = ?", session["user_id"])
   word_rows = db.execute("SELECT * FROM words_per_user WHERE user_id = ?", session["user_id"])
 
   if len(user_rows) == 0 and len(word_rows) == 0:
