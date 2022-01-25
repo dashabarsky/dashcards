@@ -15,8 +15,9 @@ def error(message,return_path):
 
 def parse_csv(path):
   """Opening and parsing CSV into output word_dict"""
-
-  #initialise variables
+  print("[{}] Parsing csv: {}".format(session["user_id"],path))
+  
+  # initialise variables
   word_dict = {"words": {}, "ranks": {}}
   headers_list = None
 
@@ -72,6 +73,8 @@ def parse_csv(path):
 
 def update_words_per_user(updated_word, outcome, word_dict):
   """Given a word and how the user answered (correct or incorrect), update the database"""
+  
+  print("[{}] Updating words per user. Word: {}. Outcome: {}".format(session["user_id"],updated_word,outcome))
 
   # get current unix timestamp
   current_time = int(time.time())
@@ -143,8 +146,8 @@ def update_user_stats(word_dict):
   mastered enough words to rank up.
   The words mastered have to be from the currently existing word set (even if the user has
   previously learned other words)."""
-
-  # if for some reason user doesn't have a set rank, initialise to 0
+  
+  print("[{}] Updating user stats - user reached mastery level for new word".format(session["user_id"]))
 
   # if for some reason user doesn't exist and no words found, return
   user_rows = db.execute("SELECT * FROM user_stats WHERE user_id = ?", session["user_id"])
@@ -203,6 +206,8 @@ def update_user_stats(word_dict):
 def get_available_words(word_dict):
   """Given current word_dict, checks list for words that are available in terms of rank and time last seen,
   based on user rank database and words per user database"""
+  
+  print("[{}] Getting available words".format(session["user_id"]))
 
   # gets user's current row
   user_rows = db.execute("SELECT * FROM user_stats WHERE user_id = ?", session["user_id"])
